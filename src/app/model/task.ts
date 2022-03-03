@@ -1,21 +1,25 @@
-class Task {
-    name: string;
-    creation_date: string;
-    done_date: string;
-    priority: number;
-    tag: string[];
-    comment: string;
-    repeat: boolean;
-    date: string;
+export class Task {
+  id:string;
+  name: string;
+  comment?: string;
 
-    constructor(name: string, creation_date: string, done_date: string, priority: number, tag: string[], comment: string, repeat: boolean, date: string) {
-        this.name = name;
-        this.creation_date = creation_date;
-        this.done_date = done_date;
-        this.priority = priority;
-        this.tag = tag;
-        this.comment = comment;
-        this.repeat = repeat;
-        this.date = date;
-    }
+  tag?: string[];
+
+  creationDate: Date;
+  dueDate?: Date;
+  doneDate?: Date;
+
+  priority: number;
+  repeat?: number;
+
+  constructor(name: string, priority: number = 0){
+    this.name = name;
+    this.priority = priority;
+    this.creationDate = new Date();
+    this.id = name.split(" ")[0] + Task.generateRandom();
+  }
+
+  static generateRandom(): number{
+    return Math.floor(Math.random() * 1000000);
+  }
 }

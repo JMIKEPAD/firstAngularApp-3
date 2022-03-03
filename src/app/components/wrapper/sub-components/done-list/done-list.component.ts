@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from 'src/app/model/task';
 
 @Component({
   selector: 'app-done-list',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoneListComponent implements OnInit {
 
-  constructor() { }
+  doneList: Task[];
 
+  constructor() {
+    let task1 = new Task("Studia Html", 10);
+    let task2 = new Task("Studia Angular", 10);
+    let task3 = new Task("Studia CSS", 10);
+    this.doneList = [task1, task2, task3];
+  }
   ngOnInit(): void {
   }
 

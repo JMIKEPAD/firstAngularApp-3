@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
-import { ToDoListComponent } from './components/to-do-list/to-do-list.component';
-import { DoneListComponent } from './components/done-list/done-list.component';
-import { TaskInputComponent } from './components/task-input/task-input.component';
-import { FilterComponent } from './components/filter/filter.component';
-import { StatisticsComponent } from './components/statistics/statistics.component';
+import { ToDoListComponent } from './components/wrapper/sub-components/to-do-list/to-do-list.component';
+import { DoneListComponent } from './components/wrapper/sub-components/done-list/done-list.component';
+import { TaskInputComponent } from './components/wrapper/sub-components/task-input/task-input.component';
+import { FilterComponent } from './components/wrapper/sub-components/filter/filter.component';
+import { StatisticsComponent } from './components/wrapper/sub-components/statistics/statistics.component';
+import { TaskListComponent } from './components/wrapper/sub-components/task-list/task-list.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     TaskInputComponent,
     FilterComponent,
     StatisticsComponent,
+    TaskListComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
