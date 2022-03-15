@@ -13,13 +13,12 @@ export class WrapperComponent implements OnInit {
   @ViewChild('drawer')
   public drawer!: MatSidenav;
 
-  clickEventSubscription!:Subscription;
 
   constructor(private sideNavService: SideNavService) {
   }
 
   ngOnInit() {
-      this.clickEventSubscription = this.sideNavService.getClickEvent().subscribe(()=> {
+      this.sideNavService.getClickEvent().subscribe(()=> {
           this.drawer.toggle();
       });
   } 
