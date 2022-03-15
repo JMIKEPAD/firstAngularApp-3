@@ -12,14 +12,26 @@ export class Task {
   priority: number;
   repeat?: number;
 
-  constructor(name: string, priority: number = 0){
+  constructor(id: string ,name: string, priority: number = 0, creationDate?: number, doneDate?:number){
     this.name = name;
-    this.priority = priority;
-    this.creationDate = new Date();
-    this.id = name.split(" ")[0] + Task.generateRandom();
+    this.priority = Task.getFirstNumber(priority);
+    if (creationDate) {
+      this.creationDate = new Date (creationDate);
+    } else{
+      this.creationDate = new Date();
+    }
+    this.id = id;
+    if (doneDate) {
+      this.doneDate=new Date (doneDate);
+    }
+    
+    //name.split(" ")[0] + Task.generateRandom();
   }
-
-  static generateRandom(): number{
-    return Math.floor(Math.random() * 1000000);
+  static getFirstNumber(fullNumber: number): number{
+    const firstDigitStr = String(fullNumber)[fullNumber.toString().length-1];
+    return Number(firstDigitStr);
   }
+  // static generateRandom(): number{
+  //   return Math.floor(Math.random() * 1000000);
+  // }
 }
