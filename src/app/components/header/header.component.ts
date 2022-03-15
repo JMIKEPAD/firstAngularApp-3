@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { SideNavService } from 'src/app/services/side-nav.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  pathString?: string;
+  isWrapperActive = false;
+  constructor(private sideNavService:SideNavService) { }
 
   ngOnInit(): void {
+    this.pathString = window.location.pathname
+    if (this.pathString === "/todolist") {
+      this.isWrapperActive = true;
+    }
+  }
+
+  clickMenu() { 
+    this.sideNavService.sendClickEvent();
   }
 
 }

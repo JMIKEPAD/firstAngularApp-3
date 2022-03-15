@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { Subscription } from 'rxjs';
+import { SideNavService } from 'src/app/services/side-nav.service';
 
 @Component({
   selector: 'app-wrapper',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WrapperComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('drawer')
+  public drawer!: MatSidenav;
 
-  ngOnInit(): void {
+  clickEventSubscription!:Subscription;
+
+  constructor(private sideNavService: SideNavService) {
   }
 
+  ngOnInit() {
+      this.clickEventSubscription = this.sideNavService.getClickEvent().subscribe(()=> {
+          this.drawer.toggle();
+      });
+  } 
 }
