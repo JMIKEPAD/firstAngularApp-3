@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, observable } from 'rxjs';
 import { Task } from 'src/app/model/task';
 import { ApiService } from 'src/app/services/api.service';
 @Component({
@@ -20,7 +21,7 @@ export class ToDoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.taskService.getActiveTask().subscribe({next: data => this.taskList = data, error: err => console.log(err)})
+    this.taskService.getActiveTasks().subscribe(data => this.taskList = data)
   }
 
   taskDeleted(id:string){
@@ -32,4 +33,6 @@ export class ToDoListComponent implements OnInit {
     }
     this.taskList = tempArray;
   }
+  
 }
+

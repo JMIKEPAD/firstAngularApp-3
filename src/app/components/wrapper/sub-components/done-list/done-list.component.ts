@@ -17,7 +17,7 @@ export class DoneListComponent implements OnInit {
     // this.doneList = [task1, task2, task3];
   }
   ngOnInit(): void {
-    this.taskService.getDoneTask().subscribe({next: data => this.doneList = data, error: err => console.log(err)})
+    this.taskService.getDoneTasks().subscribe(data => this.doneList = data)
   }
 
 }
