@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
-import { Subscription } from 'rxjs';
-import { SideNavService } from 'src/app/services/side-nav.service';
+import { Component, OnInit } from '@angular/core';
+import { timer } from 'rxjs';
+import { ComService } from 'src/app/services/com.service';
 
 @Component({
   selector: 'app-wrapper',
@@ -10,16 +9,15 @@ import { SideNavService } from 'src/app/services/side-nav.service';
 })
 export class WrapperComponent implements OnInit {
 
-  @ViewChild('drawer')
-  public drawer!: MatSidenav;
+  public drawerOpen = false;
 
+  constructor(public comS: ComService) { }
 
-  constructor(private sideNavService: SideNavService) {
+  ngOnInit(): void {
+    this.comS.isDrawerOpen.subscribe(isOpen => {
+      this.drawerOpen = isOpen;
+    });
+
   }
 
-  ngOnInit() {
-      this.sideNavService.getClickEvent().subscribe(()=> {
-          this.drawer.toggle();
-      });
-  } 
 }

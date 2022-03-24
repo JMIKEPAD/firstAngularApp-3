@@ -6,7 +6,7 @@ import { WrapperComponent } from './components/wrapper/wrapper.component';
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
-  { path: 'todolist', component: WrapperComponent },
+  { path: 'todolist', component: WrapperComponent }
 ];
 
 @NgModule({

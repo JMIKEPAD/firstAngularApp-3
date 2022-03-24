@@ -1,18 +1,19 @@
 footer{
     background-color: #313131;
+    color: white;
     height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
     font-size: x-large;
+    
 }
 
 footer a{
     color: tomato;
     font-weight: bold;
     text-decoration: none;
-    margin: 5px;
+    margin: 4px;
 }
 
 .logo{

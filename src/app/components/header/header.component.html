@@ -1,12 +1,12 @@
 <header>
     <mat-toolbar color="primary">
-      <button *ngIf="isWrapperActive" (click)="clickMenu()" mat-icon-button class="example-icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-        <span>Super To-Do List</span>
-        <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon">
+        <span>To-Do List</span>
+        <span class="spacer"></span>
+        <button mat-icon-button>
           <mat-icon>share</mat-icon>
         </button>
+        <button mat-icon-button (click)="menuClick()">
+          <mat-icon>menu</mat-icon>
+      </button>
       </mat-toolbar>
 </header>

@@ -1,20 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
-import { Task } from 'src/app/model/task';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.scss']
 })
-export class WelcomeComponent implements OnInit {
-tasks:Task[]=[];
-  constructor(private taskService : ApiService) { }
+export class WelcomeComponent implements OnInit, OnDestroy {
+
+
+  constructor() {
+    console.log("constructor")
+  }
+
+  // ngOnChanges(changes: SimpleChanges): void {
+  //     console.log("on change")
+  // }
+
 
   ngOnInit(): void {
-    // this.taskService.getAllTask().subscribe({next: data => this.tasks = data, error: err => console.log(err)})
-    // console.log(this.tasks);
-    
+    console.log("on Init");
+  }
+
+
+  ngOnDestroy(): void {
+    console.log("on Destroy");
   }
 
 }
